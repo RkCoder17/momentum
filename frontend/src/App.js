@@ -1,5 +1,5 @@
 import "@/index.css";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider, useAuth } from "@/context/AuthContext";
 import { DataProvider } from "@/context/DataContext";
 import { Toaster } from "@/components/ui/sonner";
@@ -26,7 +26,7 @@ function Guest({ children }) {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <AuthProvider>
         <Routes>
           <Route path="/login" element={<Guest><Auth mode="login" /></Guest>} />
@@ -40,6 +40,6 @@ export default function App() {
         </Routes>
         <Toaster />
       </AuthProvider>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
